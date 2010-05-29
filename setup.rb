@@ -1,8 +1,13 @@
-ENV["MONGOHQ_URL"] ||= "localhost"
-
 require "uri"
 require "mongo"
 
-uri = URI.parse(ENV["MONGOHQ_URL"])
-conn = Mongo::Connection.new(ENV["MONGOHQ_URL"], Mongo::Connection::DEFAULT_PORT)
-db = conn.db(uri.path.gsub(/^\//, ""))
+if ENV["MONGOHQ_URL"]
+  uri = URI.parse(ENV["MONGOHQ_URL"])
+  conn = Mongo::Connection.from_uri(ENV["MONGOHQ_URL"])
+  db = conn.db(uri.path.gsub(/^\//, ""))
+else
+  db = Mongo::Connection.new("localhost", Mongo::Connection::DEFAULT_PORT).db("openanno")
+end
+
+Anno = db.collection("anno")
+User = db.collection("user")
