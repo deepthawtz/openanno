@@ -14,4 +14,4 @@ Authors
 * [Carlos Cardona](http://twitter.com/cgcardona))
 * [Dylan Clendenin](http://twitter.com/deepthawtz)
 * [Jonas Huckestein](http://twitter.com/deepthawtz)
-* Zak
+* [Zak Kaplan](http://twitter.com/zakkap)
