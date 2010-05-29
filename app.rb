@@ -23,13 +23,34 @@ $KCODE="utf-8"
 # post annotation
 #post "/:uniqueid", :subdomain => /api/ do
 post "/api/:uniqueid" do
-  "Hi, you have postet an annotation"
+
+  api_key = params[:api_key]
+  annotations = JSON.parse(request.body.read.to_s)
+  
+  # TODO write to DB
+  
+ 
+  "Ok"
+  
 end
 
 # get annotations for object
 #get "/:uniqueid", :subdomain => /api/ do
 get "/api/:uniqueid" do
-  "[Annotation]"
+
+  # TODO pull object from MongoDB
+  # build it to look like this
+  object = { "id" => "UNIQUE_ID_123",
+              "annotations" => [
+                              {"movie" => {"actor" => "Sean Connery", "year" => "1991"}},
+                              {"type" => {"annotation-name" => "value", "annotation-name2" => "value2"}},
+                              {"movie" => {"year" => "none"}}
+                              ]
+              }
+
+  # return JSON
+  JSON.generate(object)
+
 end
 
 

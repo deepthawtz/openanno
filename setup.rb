@@ -1,3 +1,6 @@
+require 'json'
+
+
 #begin
 #  require "mongo"; include Mongo
 #rescue LoadError
