@@ -17,40 +17,33 @@ $KCODE="utf-8"
 #          end
 #        }
 #      end
-#      # End new code      
+#      # End new code
 #end
 
 # post annotation
 #post "/:uniqueid", :subdomain => /api/ do
-post "/api/:uniqueid" do
+post "/api/:uid" do
 
   api_key = params[:api_key]
   annotations = JSON.parse(request.body.read.to_s)
-  
-  # TODO write to DB
-  
- 
+  # TODO
+  # verify api_key
+  anno = {
+    :api_key => api_key,
+    :uid => params[:uid],
+    :annotations => annotations
+  }
+  Anno.insert(anno)
+
   "Ok"
-  
 end
 
 # get annotations for object
-#get "/:uniqueid", :subdomain => /api/ do
-get "/api/:uniqueid" do
-
-  # TODO pull object from MongoDB
-  # build it to look like this
-  object = { "id" => "UNIQUE_ID_123",
-              "annotations" => [
-                              {"movie" => {"actor" => "Sean Connery", "year" => "1991"}},
-                              {"type" => {"annotation-name" => "value", "annotation-name2" => "value2"}},
-                              {"movie" => {"year" => "none"}}
-                              ]
-              }
-
-  # return JSON
-  JSON.generate(object)
-
+# get "/:uniqueid", :subdomain => /api/ do
+get "/api/:uid" do
+  annos = Anno.find({:uid => params[:uid]}).to_a
+  "#{annos.inspect}"
+  # JSON.generate(annos)
 end
 
 
