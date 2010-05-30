@@ -50,7 +50,7 @@ h2{
   margin-bottom:-20px;
   letter-spacing:-4px;
 }
-pre {font-family:"Monaco";padding:12px;background:#F8FFDA;margin:20px;}
+pre {font-family:"Monaco";font-size:14px;padding:12px;background:#F8FFDA;margin:20px;}
 #title{
   margin-top:2px;
   border-top:2px solid #ccc;
