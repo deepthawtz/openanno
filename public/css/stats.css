@@ -1,4 +1,4 @@
-body {  background:#F3DDAB;}
+body {background:#F3DDAB;font-family: "Monaco";}
 h1 {
   font-family:Helvetica,sans-serif;
   font-size:33pt;
@@ -6,7 +6,6 @@ h1 {
 .view-all {cursor:pointer;color:#70C2E3;font-weight:bold;}
 .view-all:hover {color:#333;}
 .stats {
-  font-family: "Monaco";
   font-size:10pt;
   margin:0 auto;
   width:1100px;
@@ -49,6 +48,7 @@ h1 {
   font-weight:lighter;
 }
 .info li {
+  background:#fff;
   padding:20px;
 
   font-size:10pt;
