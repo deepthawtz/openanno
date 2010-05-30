@@ -1,7 +1,15 @@
 <div class="stats">
   <h3>Total Annotations: <%= locals[:total] %></h3>
   <ul>
-    <% locals[:report].each do |anno| %>
-      <%= anno %>
+    <% locals[:annos].each do |anno| %>
+      <li class="anno">
+        <a href="/api/<%= anno["uid"] %>"><%= anno["uid"] || "hi" %></a> ||
+        <span class="date"><em><%= anno["created_at"] || Time.now %></em></span> ||
+        <span class="view">[open]</span> ||
+        <span class="delete">[delete]</span>
+        <ul class="info">
+          <li><%= anno.inspect %>
+        </ul>
+      </li>
     <% end %>
   </ul>

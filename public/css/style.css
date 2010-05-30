@@ -1,0 +1,129 @@
+*{
+margin:0;
+padding:0;
+}
+
+@font-face {
+	font-family: 'RockwellStdRegular';
+	src: url('rockwellstd-webfont.eot');
+	src: local('☺'), url('rockwellstd-webfont.woff') format('woff'), url('rockwellstd-webfont.ttf') format('truetype'), url('rockwellstd-webfont.svg#webfontPgH5H24O') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+  font-family: 'RockwellStdRegular';
+}
+
+header{
+  margin-top:-20px;
+}
+
+#container{
+  width:700px;
+  margin:auto;
+}
+
+h1{
+  font-size:2em;
+  margin-top:20px;
+  margin-bottom:-40px;
+}
+
+h2{
+  font-size:5em;
+  color:#4c9ce6;
+  margin-top:20px;
+  margin-bottom:-20px;
+  letter-spacing:-4px;
+}
+
+#title{
+width:99%;
+margin:auto;
+}
+
+#sign-up {
+  color:#666;
+  font-size:1.75em;
+}
+
+#form-div{
+  font-size:.8em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width:350px;
+}
+
+#email{
+margin-bottom:10px;
+width:700px;
+display:block;
+height:50px;
+}
+
+#submit{
+  width:100px;
+  height:50px;
+  background-color:#ccc;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 5px;
+
+}
+
+#logo{
+  width:40%;
+  float:left;
+  margin-top:15px;
+}
+
+.italic{
+  font-style:italic;
+  font-weight:bold;
+  margin-right:2px;
+}
+
+#lightest{
+  font-weight:100;
+}
+
+.clear-both {
+  clear:both;
+  margin-top:60px;
+}
+
+nav {
+  width:19%;
+  float:right;
+  margin-top:45px;
+  margin-bottom:20px;
+}
+
+nav li {
+  display:inline;
+  margin-right:40px;
+}
+
+nav li a {
+  color:#ccc;
+  text-decoration:none;
+}
+
+hr {
+  color:#ccc;
+  background-color:#ccc;
+}
+
+#top-hr{
+height:2px;
+color:#ccc;
+background-color:#ccc;
+margin-bottom:2px;
+}
+
+#bottom-hr{
+height:1px;
+color:#ccc;
+background-color:#ccc;
+}

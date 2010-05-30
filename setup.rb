@@ -1,6 +1,8 @@
+require "rubygems"
 require "uri"
 require "mongo"
-require 'json'
+require "json"
+require "pony"
 
 if ENV["MONGOHQ_URL"]
   uri = URI.parse(ENV["MONGOHQ_URL"])
@@ -15,4 +17,8 @@ User = db.collection("user")
 
 def Anno.all
   Anno.find.to_a
+end
+
+def User.all
+  User.find.to_a
 end
