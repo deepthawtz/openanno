@@ -1,0 +1,49 @@
+body {
+/*  background-color:#8195C3;*/
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 28pt;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px #666;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: -0.05em;
+  word-spacing: -0.044em;
+  line-height: 1;
+}
+
+#container{
+  width:700px;
+  margin:auto;
+}
+
+h1{
+  font-size:3em;
+  margin-top:20px;
+  margin-bottom:-40px;
+}
+
+h2{
+  font-size:1em;
+}
+
+fieldset{
+
+}
+
+#form-div{
+  font-size:.8em;
+  -moz-box-shadow: 0px 0px 10px #666;
+  -webkit-box-shadow: 3px 3px 3px #666;
+  box-shadow: 3px 3px 3px #666;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width:350px;
+  background-color:#003F87;
+  padding:20px;
+}
+
+#email{
+margin-bottom:10px;
+}
