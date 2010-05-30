@@ -127,6 +127,11 @@ nav li {
 
 nav li a {
   color:#ccc;
+<<<<<<< Updated upstream
+=======
+  float:right;
+  margin-left:25px;
+>>>>>>> Stashed changes
   text-decoration:none;
 }
 

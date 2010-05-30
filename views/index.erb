@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <header>
   <div id="logo">
     <h1><a href="/"><span class="italic">#open</span><span id="lightest">anno</a></span>
@@ -28,12 +29,13 @@
    Sign up to receive a developers key
  </p>
 </div>
+=======
+<div id="title"><h2>annotate anything...</h2></div>
+<div id="sign-up"><p>sign up to receive a developers key</p></div>
+>>>>>>> Stashed changes
 
 <div id="form-div">
-<% if @form_error %>
-	<p><b><%=@form_error%></b></p>
-<% end %>
-
+  <%= "<p><b>#{@form_error}</b></p>" if @form_error %>
   <form action="" method="post" name="main-form" id="main-form">
     <input type="email" id="email" size="100" name="email" placeholder="your email">
     <input type="submit" id="submit" value="go!">
@@ -41,7 +43,7 @@
 </div><!--end of form-div-->
 	<ul class="accordion">
 		<li id="create-slide">
-			<h3 class="opener">Key-value storage</h3>
+			<h3 class="opener">what's all the buzz?</h3>
 			<div class="slide" style="display: none">
 				<div class="content">
 					<p id="1p">
@@ -54,7 +56,7 @@
 			</div>
 		</li>
 		<li id="deploy-slide">
-			<h3 class="opener">Access millions of user-created annotations</h3>
+			<h3 class="opener">okay, but how do I use it...</h3>
 			<div class="slide" style="display: none">
 				<div class="content">
 				  <p id="2p">
@@ -67,7 +69,7 @@
 			</div>
 		</li>
 		<li id="work-slide">
-			<h3 class="opener active">Platform agnostic</h3>
+			<h3 class="opener active">this is why it matters:</h3>
 			<div class="slide slide-bottom">
 				<div class="content">
 					<p id="2p">
