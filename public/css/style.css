@@ -46,6 +46,8 @@ margin:auto;
 #sign-up {
   color:#666;
   font-size:1.75em;
+  margin-top:45px;
+  margin-bottom:30px;
 }
 
 #form-div{
@@ -53,23 +55,32 @@ margin:auto;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  width:350px;
+  position:relative;
 }
 
 #email{
 margin-bottom:10px;
-width:700px;
+width:600px;
 display:block;
-height:50px;
+height:45px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+font-size:3em;
+padding:0 0 10px 20px;
 }
 
 #submit{
   width:100px;
-  height:50px;
+  height:59px;
   background-color:#ccc;
   -webkit-border-radius: 0 5px 5px 0;
   -moz-border-radius: 5px;
-
+  position:absolute;
+  top:0;
+  right:-2px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+  font-size:2em;
 }
 
 #logo{
@@ -86,6 +97,7 @@ height:50px;
 
 #lightest{
   font-weight:100;
+  font-style:italic;
 }
 
 .clear-both {
@@ -126,4 +138,30 @@ margin-bottom:2px;
 height:1px;
 color:#ccc;
 background-color:#ccc;
+}
+
+h3{
+font-size:2em;
+font-weight:100;
+}
+
+h3 a {
+  color:#b5894f;
+  text-decoration:none;
+}
+
+p{
+  color:#ccc;
+}
+
+ul{
+list-style-type:none;
+}
+
+ul h3{
+color:#b5894f;
+}
+
+.accordion{
+margin-top:50px;
 }

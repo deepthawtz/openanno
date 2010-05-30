@@ -19,34 +19,20 @@ get "/" do
 end
 
 # POST annotation
-# POST "/:uniqueid", :subdomain => /api/ do
-#
-# (RFC DYLAN-1): we could expand this API
-# by offering the following url pattern
-#
-# /api/:namespace-category-src/(:uid)
-#
-# where: :namespace-category-src is a source
-# and :uid is optional
-#
-# the benefit might be to treat twitter as
-# just one annotation source while other sources
-# should happen to like to offer annotation-like
-# meta-data
-# feel free to veto this idea down.
+# POST "/:uid", :subdomain => "api"
 post "/api/:uid" do
 
   api_key = params[:api_key] || "homies"
-  
+
   annotations = JSON.parse(request.body.read.to_s)
-  
+
   # show an error if the api_key is invalid
   if !User.find_one(:api_key => api_key)
     status 403
     return "Unknown API Key"
   end
-  
- 
+
+
   # build an annotation and insert it
   anno = {
     :api_key => api_key,
@@ -60,14 +46,14 @@ post "/api/:uid" do
 end
 
 # get annotations for object
-# get "/:uniqueid", :subdomain => /api/ do
+# get "/:uid", :subdomain => /api/ do
 get "/api/:uid" do
 
   # return all annotations in one merged array
   result = { :uid => params[:uid],
              :annotations => Anno.find({:uid => params[:uid]}).to_a.map { |a| a["annotations"] }.flatten }
-  
-  result.to_json  
+
+  result.to_json
 
 end
 
@@ -96,7 +82,7 @@ post "/" do
     # insert api key into MongoDB
     # TODO error checking? whatever ...
     User.insert({:email => email, :api_key => api_key})
-    
+
     # send out API key
     body = ERB.new(File.new("views/welcome_mail.erb").read).result(binding)
     Pony.mail(:from => "openanno <openanno@gmail.com>",
@@ -105,7 +91,7 @@ post "/" do
               :subject => "Welcome to openanno!",
               :via => :smtp,
               :via_options => smtp_options)
-    
+
     # this is used in the docs template to display a flashy banner
     @email_sent = true
 
@@ -123,6 +109,7 @@ get "/docs" do
 end
 
 
+# Admin stuff
 get "/stats" do
   # TODO: authenticate admin
   total = Anno.count
@@ -132,6 +119,11 @@ get "/stats" do
     :total => total,
     :annos => annos
   }
+end
+
+post "/delete/:uid" do
+  # TODO auth
+  Anno.find_one(params[:uid]).delete
 end
 
 helpers do
