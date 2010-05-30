@@ -35,9 +35,9 @@ header {
   margin:auto;
 }
 
-h1 {font-size:2em;}
+h1 {font-size:2em;font-style:italic;}
 
-h1 a > span { font-weight:bold;font-style:italic; }
+h1 a > span { font-weight:bold; }
 
 h1 a > span + span { font-family:"RockwellStdLight";font-weight:100; }
 
