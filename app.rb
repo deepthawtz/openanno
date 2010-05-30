@@ -58,6 +58,22 @@ get "/api/:uid" do
 end
 
 
+# duplicates facebook api and pulls in annotations
+# annotations are fb_{fb_uniqueid}
+get "/fb/:uid" do
+  
+  fb_obj = Facebook::GraphAPI.new().get_object(params[:uid])
+  uid = fb_obj["id"] ? "fb_"+fb_obj["id"] : "fb_"+params[:uid] 
+ 
+  # return all annotations in one merged array
+  result = { :uid => uid,
+             :fb_object => fb_obj,
+             :annotations => Anno.find({:uid => uid}).to_a.map { |a| a["annotations"] }.flatten }
+             
+  result.to_json
+
+end
+
 
 
 
