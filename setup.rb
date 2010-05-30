@@ -12,3 +12,7 @@ end
 
 Anno = db.collection("anno")
 User = db.collection("user")
+
+def Anno.all
+  Anno.find.to_a
+end
