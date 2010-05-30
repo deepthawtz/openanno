@@ -78,14 +78,11 @@ end
 get "/stats" do
   # TODO: authenticate admin
   total = Anno.count
-  report = []
-  Anno.all.each do |anno|
-    report << "<li> <a href='/api/#{anno["uid"]}'>#{anno["uid"]}</a> || <span class='date'> <em>#{anno["created_at"]}</em> </span> || <span class='usage'> #usage #standard </span> || </li>"
-  end
+  annos = Anno.all
 
-  erb :stats, :locals => {
+  erb :stats, :layout => :admin, :locals => {
     :total => total,
-    :report => report
+    :annos => annos
   }
 end
 
