@@ -25,7 +25,7 @@ post "/api/:uid" do
 end
 
 # get annotations for object
-# get "/:uniqueid", :subdomain => /api/ do
+# get "/:uid", :subdomain => /api/ do
 get "/api/:uid" do
   annos = Anno.find({:uid => params[:uid]}).to_a
 
@@ -61,6 +61,7 @@ get "/docs" do
 end
 
 
+# Admin stuff
 get "/stats" do
   # TODO: authenticate admin
   total = Anno.count
