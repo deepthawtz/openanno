@@ -3,7 +3,7 @@
   <div class="view-all">[[ view all ]]</div>
   <div action="/delete/all" class="delete-all">[[ delete all ]]</div>
   <ul>
-    <% locals[:annos].reverse.each do |anno| %>
+    <% locals[:annos].each do |anno| %>
       <li class="anno">
         <a href="/api/<%=anno["uid"]%>"><%= anno["uid"] %></a> ||
         <span class="date"><em><%= anno["created_at"] %></em></span> ||
