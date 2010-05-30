@@ -53,7 +53,7 @@ end
 
 
 # request an api key and mail it to the user
-post "/request_api_key" do
+post "/" do
   email = params[:email]
 
   # TODO test email valid
