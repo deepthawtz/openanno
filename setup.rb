@@ -3,6 +3,10 @@ require "uri"
 require "mongo"
 require "json"
 require "pony"
+require "koala"
+
+include Koala
+
 
 if ENV["MONGOHQ_URL"]
   uri = URI.parse(ENV["MONGOHQ_URL"])
