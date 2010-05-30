@@ -97,6 +97,7 @@ padding:0 0 10px 20px;
 
 #lightest{
   font-weight:100;
+  font-style:italic;
 }
 
 .clear-both {
@@ -159,4 +160,8 @@ list-style-type:none;
 
 ul h3{
 color:#b5894f;
+}
+
+.accordion{
+margin-top:50px;
 }
