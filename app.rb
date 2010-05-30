@@ -24,7 +24,7 @@ $KCODE="utf-8"
 #post "/:uniqueid", :subdomain => /api/ do
 post "/api/:uid" do
 
-  api_key = params[:api_key]
+  api_key = params[:api_key] || "homies"
   annotations = JSON.parse(request.body.read.to_s)
   # TODO
   # verify api_key
