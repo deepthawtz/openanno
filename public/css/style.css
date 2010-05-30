@@ -138,3 +138,25 @@ height:1px;
 color:#ccc;
 background-color:#ccc;
 }
+
+h3{
+font-size:2em;
+font-weight:100;
+}
+
+h3 a {
+  color:#b5894f;
+  text-decoration:none;
+}
+
+p{
+  color:#ccc;
+}
+
+ul{
+list-style-type:none;
+}
+
+ul h3{
+color:#b5894f;
+}
