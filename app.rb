@@ -101,7 +101,7 @@ post "/" do
 end
 
 get "/add" do
-  erb :add
+  erb :add, :layout => :form
 end
 
 # random other page
