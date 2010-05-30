@@ -6,11 +6,11 @@ padding:0;
 a { text-decoration:none;}
 
 @font-face {
-	font-family: 'RockwellStdRegular';
-	src: url('rockwellstd-webfont.eot');
-	src: local('☺'), url('rockwellstd-webfont.woff') format('woff'), url('rockwellstd-webfont.ttf') format('truetype'), url('rockwellstd-webfont.svg#webfontPgH5H24O') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'RockwellStdRegular';
+  src: url('rockwellstd-webfont.eot');
+  src: local('☺'), url('rockwellstd-webfont.woff') format('woff'), url('rockwellstd-webfont.ttf') format('truetype'), url('rockwellstd-webfont.svg#webfontPgH5H24O') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body{
@@ -19,9 +19,9 @@ body{
 
 header {
   margin-top:-20px;
-	display:block;
-	overflow:hidden;
-	border-bottom:1px solid #ccc;
+  display:block;
+  overflow:hidden;
+  border-bottom:1px solid #ccc;
 }
 
 #container{
@@ -44,7 +44,8 @@ h2{
   margin-bottom:-20px;
   letter-spacing:-4px;
 }
-
+h3 {margin:20px;}
+pre {font-family:"Monaco";padding:12px;background:#F8FFDA;margin:20px;}
 #title{
 margin-top:2px;
 border-top:2px solid #ccc;
@@ -54,8 +55,8 @@ border-top:2px solid #ccc;
 #sign-up {
   color:#666;
   font-size:1.75em;
-	margin-bottom:10px;
-	margin-top:30px;
+  margin-bottom:10px;
+  margin-top:30px;
 }
 
 #form-div{
@@ -143,9 +144,11 @@ h3 a {
 }
 
 p{
-  color:#ccc;
+  color:#999;
 }
-
+ul {
+  margin:20px;
+}
 ul{
 list-style-type:none;
 }
