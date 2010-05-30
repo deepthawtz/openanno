@@ -11,13 +11,11 @@ post "/api/:uid" do
   api_key = params[:api_key] || "homies"
   annotations = JSON.parse(request.body.read.to_s)
 
-  # show an error if the api_key is invalid
   if !User.find_one(:api_key => api_key)
     status 403
     return "Unknown API Key\n\n"
   end
 
-  # build an annotation and insert it
   anno = {
     :api_key => api_key,
     :uid => params[:uid],
@@ -32,7 +30,6 @@ end
 # get annotations for object
 # get "/:uid", :subdomain => /api/ do
 get "/api/:uid" do
-
   # return all annotations in one merged array
   result = { :uid => params[:uid],
              :annotations => Anno.find({:uid => params[:uid]}).to_a.map { |a| a["annotations"] }.flatten }
@@ -133,8 +130,27 @@ post "/delete/:uid" do
 end
 
 helpers do
-  def process_some_annotations(annos)
-
+  annos_type = [
+    {"id" => "movies",
+      "names" => ["name1", "name2"],
+      "values" => ["value1", "value2"]
+      },
+    {"id" => "event",
+        "names" => ["event_field"],
+        "values" => ["some_event_field_value"]
+        }
+  ]
+  def process_from_post(annos_type)
+    # annos_param[][]
+    result = []
+    annos_type.each do |anno|
+      set = {}
+      anno["names"].each_with_index do |name, idx|
+        set[name] = anno["values"][idx]
+      end
+      result << {anno["id"] => set}
+    end
+    result
   end
 end
 
