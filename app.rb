@@ -9,7 +9,14 @@ end
 
 # POST "/:uid", :subdomain => "api"
 post "/api/:uid" do
-  validate_api_key(params[:api_key])
+
+  api_key = params[:api_key]
+  if !User.find_one(:api_key => params[:api_key])
+     status 403
+     "Ok\n\n"
+    return
+  end
+
   annotations = JSON.parse(request.body.read.to_s)
 
   anno = {
@@ -30,17 +37,17 @@ post "/manualpost" do
 
      erb :add, :layout => :form
  else
-  annotations = process_from_post(params["type"])
+   annotations = process_from_post(params["type"])
 
-  anno = {
-    :api_key => params[:api_key],
-    :uid => params["obj_name"],
-    :created_at => Time.now,
-    :annotations => annotations
-  }
-  Anno.insert(anno)
+    anno = {
+      :api_key => params[:api_key],
+      :uid => params["obj_name"],
+      :created_at => Time.now,
+      :annotations => annotations
+    }
+    Anno.insert(anno)
 
-  "OK\n\n"
+    redirect "/add?success=true"
   end
 end
 
@@ -116,6 +123,7 @@ post "/" do
 end
 
 get "/add" do
+  @success = params[:success]
   erb :add, :layout => :form
 end
 
@@ -139,6 +147,8 @@ get "/stats" do
 end
 
 post "/delete/all" do
+
+
   Anno.remove({})
 end
 
@@ -172,13 +182,6 @@ helpers do
       result << { anno["id"] => set}
     end
     return result
-  end
-
-  def validate_api_key(api_key)
-    if !User.find_one(:api_key => api_key)
-      status 403
-      return "Unknown API Key\n\n"
-    end
   end
 end
 
