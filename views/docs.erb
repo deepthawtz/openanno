@@ -1,8 +1,10 @@
 <h1>Docs</h1>
 <br><br>
 <% if @email_sent %>
-  <p><b>Thanks for signing up. An email containing your API key was sent out :D</b></p>
+  <p class="flash">Thanks for signing up. An email containing your API key was sent out</p>
 <% end %>
+
+<p class="flash">Thanks for signing up. An email containing your API key was sent out</p>
 
 <h3>First Steps</h3>
 
@@ -10,12 +12,19 @@
 
 <p>Go to your command line and do the following (make sure to replace your api key and perhaps <b>some_object</b>)</p>
 
-<pre>curl -i -X POST -d '{"example_type":{"awesome_factor":"10"}}'  \
+<pre>curl -i -X POST -d '[{"example_type":{"awesome_factor":"10"}}]'  \
       http://openanno.com/api/<b>some_object</b>?api_key=<b>your_api_key</b></pre>
 
 <p>Congratulations! You have just annotated <b>some_object</b>. Let's try a GET on that object to see if the annotations came through: (note that you don't need an API key for this. Pulling stuff is public)</p>
 
 <pre>curl http://openanno.com/api/<b>some_object</b></pre>
+
+
+<h3>How does this work</h3>
+<p>As you can see we are annotating the object with an array of a hash of hashes. We use exactly the same data model that Twitter annotations use. Refer to <a href="https://apiwiki.twitter.com/Annotations-Hackfest-May-25th">their documentation</a> and staff for support.
+
+<p>Feel free to check out the sourcecode of all this at <a href="http://github.com/deepthawtz/openanno">github</a>.</p>
+<p>The entire thing is a sinatra app running on heroku. We're using a scalable MongoDB database that is hosted at MongoHQ. </p>
 
 
 
@@ -27,19 +36,15 @@
 
 <br>
 <h3>Follow-along instructions:</h3>
-<p>
 <ol>
   <li>While logged into Facebook, point your browser to <a href="http://graph.facebook.com/me">http://graph.facebook.com/me</a>.</li>
   <li>Take note of the "id" field in the returned JSON.</li>
   <li>Call `curl http://openanno.com/fb/{your_id}` from the commandline. Since there are no annotations on your Facebook object the result will essentially look the same as before.</li>
-  <li>Now call `curl -i -X POST -d '{"example_type":{"awesome_factor":"10"}}' http://openanno.com/api/fb_{your_id}`. This posts an annotation to your Facebook profile. Note the fb_ prefix in the id. This is our convention to identify facebook ids</li>
+  <li>Now call `curl -i -X POST -d '[{"example_type":{"awesome_factor":"10"}}]' http://openanno.com/api/fb_{your_id}`. This posts an annotation to your Facebook profile. Note the fb_ prefix in the id. This is our convention to identify facebook ids</li>
   <li>Call the curl from 3. again. It'll now include the annotations :)</li>
 </ol>
-</p>
 
-<h3>How does this work</h3>
-<p>Feel free to check out the sourcecode of all this at <a href="http://github.com/deepthawtz/openanno">github</a>.</p>
-<p>The entire thing is a sinatra app running on heroku. We're using a scalable MongoDB database that is hosted at MongoHQ. </p>
+
 <br><br><br><br>
 
 

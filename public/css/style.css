@@ -181,3 +181,12 @@ li.anno {
 .accordion{
 margin-top:50px;
 }
+
+.flash {
+	color: #2a2;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: 40px;
+	padding-top: 0px;
+}
+
