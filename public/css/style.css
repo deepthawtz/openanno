@@ -14,8 +14,8 @@ a { text-decoration:none;}
 }
 
 @font-face {
-  font-family: "RockwellStd-Light";
-  src: url('../fonts/RockwellStd-Light.otf');
+  font-family: "RockwellStdLight";
+  src: url('RockwellStdLight.otf');
 }
 
 body{
@@ -24,10 +24,7 @@ body{
   padding:30px 0;
 }
 
-p { font-family:"Lucida Grande", sans-serif;letter-spacing:-1px; }
-
 header {
-  margin-top:-20px;
   display:block;
   overflow:hidden;
   border-bottom:1px solid #ccc;
@@ -38,15 +35,11 @@ header {
   margin:auto;
 }
 
-h1{
-  font-size:2em;
-  margin-top:20px;
-  margin-bottom:-40px;
-}
+h1 {font-size:2em;}
 
 h1 a > span { font-weight:bold;font-style:italic; }
 
-h1 a > span + span { font-family:RockwellStd-Light;font-weight:100; }
+h1 a > span + span { font-family:"RockwellStdLight";font-weight:100; }
 
 h1 a { color:#333; }
 
@@ -57,14 +50,13 @@ h2{
   margin-bottom:-20px;
   letter-spacing:-4px;
 }
-h3 {margin:20px;}
 pre {font-family:"Monaco";padding:12px;background:#F8FFDA;margin:20px;}
 #title{
   margin-top:2px;
   border-top:2px solid #ccc;
 }
 
-#sign-up {
+#sign-up > p {
   font-size:1.75em;
   margin-bottom:10px;
   margin-top:30px;
@@ -126,7 +118,6 @@ input::-webkit-input-placeholder { color:#ccc;line-height:65px;}
 #logo{
   width:40%;
   float:left;
-  margin-top:15px;
 }
 
 .italic{
@@ -145,17 +136,16 @@ input::-webkit-input-placeholder { color:#ccc;line-height:65px;}
   margin-top:60px;
 }
 
-nav {
-  float:right;
-  margin-top:45px;
-  margin-bottom:20px;
+.nav {
+	float:right;
+	padding-top:12px;
 }
 
-nav li {
+.nav li {
   display:inline;
 }
 
-nav li a {
+.nav li a {
   color:#ccc;
   float:right;
   margin-left:25px;
@@ -167,7 +157,7 @@ h3{
 font-size:2em;
 font-weight:100;
 }
-
+.accordion li { color:#333; }
 .accordion li + li { margin-top:10px; }
 h3 a {
   color:#b5894f;
@@ -175,10 +165,8 @@ h3 a {
 }
 
 p{
-  color:#999;
-}
-ul {
-  margin:20px;
+  color:#9c9c9c;
+	font-family:"RockwellStdLight";
 }
 ul{
 list-style-type:none;
