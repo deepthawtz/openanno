@@ -1,15 +1,16 @@
 <div class="stats">
   <h3>Total Annotations: <%= locals[:total] %></h3>
   <div class="view-all">[[ view all ]]</div>
+  <div action="/delete/all" class="delete-all">[[ delete all ]]</div>
   <ul>
-    <% locals[:annos].each do |anno| %>
+    <% locals[:annos].reverse.each do |anno| %>
       <li class="anno">
-        <a href="/api/<%=anno["uid"]%>"><%= anno["uid"] || "hi" %></a> ||
+        <a href="/api/<%=anno["uid"]%>"><%= anno["uid"] %></a> ||
         <span class="date"><em><%= anno["created_at"] %></em></span> ||
         <span class="view">[[ open ]]</span> ||
-        <span class="delete" action="/delete" uid="<%=anno["uid"]%>">( X )</span>
+        <span class="delete" action="/delete/<%=anno["uid"]%>">[x]</span>
         <ul class="info">
-          <li><%= anno.inspect %>
+          <li><%= anno["annotations"].inspect %>
         </ul>
       </li>
     <% end %>

@@ -156,9 +156,17 @@ nav li {
 
 nav li a {
   color:#ccc;
+<<<<<<< HEAD
   float:right;
 margin-left:25px;
 
+=======
+<<<<<<< Updated upstream
+=======
+  float:right;
+  margin-left:25px;
+>>>>>>> Stashed changes
+>>>>>>> dev
   text-decoration:none;
 }
 

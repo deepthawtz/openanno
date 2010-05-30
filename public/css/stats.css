@@ -38,6 +38,10 @@ h1 {
 .anno .view:hover {
   color:#166E99;
 }
+.delete-all {
+  color:red;
+  cursor:pointer;
+}
 .anno .delete {
   cursor:pointer;
   color:red;
