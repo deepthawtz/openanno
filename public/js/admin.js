@@ -1,5 +1,8 @@
 $(document).ready(function() {
   $(".info li").hide()
+  
+  $("li.anno:odd").css("background-color", "#ddd")
+  $("li.anno:even").css("background-color", "#eee")
 
   $(".anno .view").toggle(
     function() { $(this).parent().find(".info li").show();$(this).text("[[ close ]]")},
@@ -17,15 +20,9 @@ $(document).ready(function() {
       url: "/delete" + uid,
       data: $(this).attr("uid").serialize(),
       success: function(data) {
-        console.log("debugging ajax POST")
         console.log("receiving data: " + data)
       }
     })
   })
 })
 
-$(".status").each(function(){
-  $(this).hide()
-  console.log(this)
-  console.log($(this).attr("id").replace(/status_/, ""))
-})
