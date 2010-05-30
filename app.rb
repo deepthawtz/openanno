@@ -80,17 +80,7 @@ get "/stats" do
   total = Anno.count
   report = []
   Anno.all.each do |anno|
-    report << <<HERE
-      <li>
-        <a href="/api/#{anno["uid"]}">#{anno["uid"]}</a> ||
-        <span class="date">
-          <em>#{anno["created_at"]}</em>
-        </span> ||
-       <span class="usage">
-         #usage #standard
-       </span> ||
-      </li>
-HERE
+    report << "<li> <a href='/api/#{anno["uid"]}'>#{anno["uid"]}</a> || <span class='date'> <em>#{anno["created_at"]}</em> </span> || <span class='usage'> #usage #standard </span> || </li>"
   end
 
   erb :stats, :locals => {
