@@ -16,7 +16,7 @@ post "/api/:uid" do
      "Ok\n\n"
     return
   end
-  
+
   annotations = JSON.parse(request.body.read.to_s)
 
   anno = {
@@ -37,17 +37,17 @@ post "/manualpost" do
 
      erb :add, :layout => :form
  else
-  annotations = process_from_post(params["type"])
+   annotations = process_from_post(params["type"])
 
-  anno = {
-    :api_key => params[:api_key],
-    :uid => params["obj_name"],
-    :created_at => Time.now,
-    :annotations => annotations
-  }
-  Anno.insert(anno)
+    anno = {
+      :api_key => params[:api_key],
+      :uid => params["obj_name"],
+      :created_at => Time.now,
+      :annotations => annotations
+    }
+    Anno.insert(anno)
 
-  "OK\n\n"
+    redirect "/add?success=true"
   end
 end
 
@@ -123,6 +123,7 @@ post "/" do
 end
 
 get "/add" do
+  @success = params[:success]
   erb :add, :layout => :form
 end
 
@@ -146,6 +147,8 @@ get "/stats" do
 end
 
 post "/delete/all" do
+
+
   Anno.remove({})
 end
 
