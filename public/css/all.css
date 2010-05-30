@@ -1,0 +1,25 @@
+.stats {
+  font-family: "Monaco";
+  margin:0 auto;
+  width:1100px;
+}
+.stats ul {
+  border: 3px solid #333;
+  background-color:#333;
+}
+.stats em {
+  color:#999;
+}
+.stats li .views {
+  color:#26B6E7;
+}
+.stats li {
+  list-style:none;
+  padding:4px;
+  text-align:left;
+}
+footer {
+  clear:both;
+  margin:280px auto;
+  width:580px;
+}

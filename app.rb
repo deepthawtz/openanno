@@ -1,24 +1,5 @@
 $KCODE="utf-8"
 %w[ rubygems sinatra setup ].map {|x| require x }
-#before do
-#  @redis = Redis.new
-#end
-
-# this sucker doesn't work in current sinatra
-#class Sinatra::Base
-#      # New code here
-#      def subdomain(pattern)
-#        condition {
-#          if request.subdomains[0] =~ pattern
-#            @params[:subdomain] = $~[1..-1]
-#            true
-#          else
-#            false
-#          end
-#        }
-#      end
-#      # End new code
-#end
 
 # post annotation
 #post "/:uniqueid", :subdomain => /api/ do
@@ -31,6 +12,7 @@ post "/api/:uid" do
   anno = {
     :api_key => api_key,
     :uid => params[:uid],
+    :created_at => Time.now,
     :annotations => annotations
   }
   Anno.insert(anno)
@@ -42,6 +24,7 @@ end
 # get "/:uniqueid", :subdomain => /api/ do
 get "/api/:uid" do
   annos = Anno.find({:uid => params[:uid]}).to_a
+
   "#{annos.inspect}"
   # JSON.generate(annos)
 end
@@ -57,8 +40,6 @@ end
 
 # random other page
 get "/docs" do
-  "docs"
-
   erb :docs
 end
 
@@ -68,7 +49,18 @@ get "/" do
   erb :index
 end
 
+get "/stats" do
+  total = Anno.count
+  report = []
+  Anno.all.each do |anno|
+    report << "<li><a href='/api/#{anno["uid"]}'>#{anno["uid"]}</a> || <em>date</em> || <span class='usage'>usage stats</span>"
+  end
 
+  erb :stats, :locals => {
+    :total => total,
+    :report => report
+  }
+end
 
 
 
