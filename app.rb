@@ -7,21 +7,7 @@ get "/" do
 end
 
 # POST annotation
-# POST "/:uniqueid", :subdomain => /api/ do
-#
-# (RFC DYLAN-1): we could expand this API
-# by offering the following url pattern
-#
-# /api/:namespace-category-src/(:uid)
-#
-# where: :namespace-category-src is a source
-# and :uid is optional
-#
-# the benefit might be to treat twitter as
-# just one annotation source while other sources
-# should happen to like to offer annotation-like
-# meta-data
-# feel free to veto this idea down.
+# POST "/:uid", :subdomain => "api"
 post "/api/:uid" do
 
   api_key = params[:api_key] || "homies"
