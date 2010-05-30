@@ -112,17 +112,24 @@ get "/stats" do
   total = Anno.count
   annos = Anno.all
 
+  # sort by recently modified/added
+
   erb :stats, :layout => :admin, :locals => {
     :total => total,
     :annos => annos
   }
 end
 
+post "/delete/all" do
+  Anno.remove({})
+end
+
 post "/delete/:uid" do
   # TODO auth
-  Anno.find_one(params[:uid]).delete
+  Anno.remove({"uid" => params[:uid]})
 end
 
 helpers do
   # def some_stuff_to_help_us
 end
+
