@@ -95,7 +95,7 @@ post "/" do
     # render the docs page showing a tutorial
     erb :docs
   else
-    @form_error = "WRONG! You suck you pathetic failure!"
+    @form_error = "Please enter a correct email address"
     erb :index
   end
 end
