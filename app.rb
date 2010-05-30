@@ -1,17 +1,6 @@
 $KCODE="utf-8"
 %w[ rubygems sinatra setup faker digest/sha1 ].map {|x| require x }
 
-# putting this in setup.rb doesn't work for some reason
-smtp_options = {
-    :address              => 'smtp.gmail.com',
-    :port                 => '587',
-    :enable_starttls_auto => true,
-    :user_name            => 'openanno@gmail.com',
-    :password             => 'openannotation',
-    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-    :domain               => "openanno.com" # the HELO domain provided by the client to the server
-}
-
 
 # index page
 get "/" do
