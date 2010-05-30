@@ -1,5 +1,5 @@
 $KCODE="utf-8"
-%w[ rubygems sinatra setup faker ].map {|x| require x }
+%w[ rubygems sinatra setup faker digest/sha1 ].map {|x| require x }
 
 # putting this in setup.rb doesn't work for some reason
 smtp_options = {
@@ -85,10 +85,13 @@ post "/" do
 
     # if the email already exists, delete it
     User.remove :email => email
-
-    # generate API key
-    require "digest/sha1"
-    api_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..16]
+    
+    # generate api key
+    api_key = (Faker::Address.city.gsub(/\s/, '_') + "_" + Faker::Address.city.gsub(/\s/, '_') + "_" + rand(100).to_s).downcase
+    
+    # check if already has a key and return old one
+    user = User.find_one({:email => params[:email]})
+    api_key = user['api_key'] if user and user['api_key']
 
     # insert api key into MongoDB
     # TODO error checking? whatever ...
