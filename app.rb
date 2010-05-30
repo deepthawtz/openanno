@@ -1,5 +1,5 @@
 $KCODE="utf-8"
-%w[ rubygems sinatra setup ].map {|x| require x }
+%w[ rubygems sinatra setup faker ].map {|x| require x }
 
 # putting this in setup.rb doesn't work for some reason
 smtp_options = {
