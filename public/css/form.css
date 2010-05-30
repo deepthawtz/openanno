@@ -59,6 +59,7 @@ section#annotator {
 	width: 500px;
 }
 fieldset {
+	padding: 10px;
 	margin: 10px;
 	border: 2px solid #333;
 	-moz-border-radius: 8px; /* FF1+ */
@@ -66,6 +67,7 @@ fieldset {
 	border-radius: 8px; /* Opera 10.5, IE 9 */
 }
 fieldset legend {
+	margin-left: 10px;
 	padding: 8px;
 	border: 1px #333 solid;
 	color: #040b23;
@@ -77,6 +79,9 @@ fieldset legend {
 	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #0e70d7),color-stop(1, #0A81FF)); /* Saf4+, Chrome */
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#0e70d7', EndColorStr='#0A81FF'); /* IE6,IE7 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#0e70d7', EndColorStr='#0A81FF')"; /* IE8 */
+}
+table, thead, tbody, tfoot, tr {
+	width: 100%;
 }
 th, td {
 	text-align: center;
@@ -157,5 +162,6 @@ input[type="text"]:focus {
 	text-align: right;
 }
 .buttonContain {
+	padding: 15px;
 	text-align: center;
 }
