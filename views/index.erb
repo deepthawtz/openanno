@@ -1,1 +1,18 @@
-<h1>openANNO <%= @instance_var %></h1>
+<h1>Openanno</h1>
+<h2>Do something amazing</h2>
+<div id="form-div">
+
+<% if @form_error %>
+
+	<p><b><%=@form_error%></b></p>
+
+<% end %>
+
+
+<form action="request_api_key" method="post" name="main-form" id="main-form">
+  <legend>Request your developer key</legend>
+  <p id="email">Your email address:</p>
+  <input type="email" name="email" placeholder="Enter your email address"></span><br></p>
+  <input type="submit" value="Request your key">
+</form>
+</div><!--end of form-div-->
