@@ -52,7 +52,22 @@ end
 
 # request an api key and mail it to the user
 post "/request_api_key" do
-  "Requested API key"
+  email = params[:email]
+
+  # TODO test email valid
+  if email
+
+    # TODO generate API key
+    # TODO send out API key
+    
+    @email_sent = true
+    erb :docs
+  else
+    @form_error = "WRONG! You suck you pathetic failure!"
+    erb :index
+  end
+  
+
 end
 
 # random other page
