@@ -98,7 +98,7 @@ post "/" do
     # render the docs page showing a tutorial
     erb :docs
   else
-    @form_error = "WRONG! You suck you pathetic failure!"
+    @form_error = "Please enter a correct email address"
     erb :index
   end
 end
@@ -114,17 +114,24 @@ get "/stats" do
   total = Anno.count
   annos = Anno.all
 
+  # sort by recently modified/added
+
   erb :stats, :layout => :admin, :locals => {
     :total => total,
     :annos => annos
   }
 end
 
+post "/delete/all" do
+  Anno.remove({})
+end
+
 post "/delete/:uid" do
   # TODO auth
-  Anno.find_one(params[:uid]).delete
+  Anno.remove({"uid" => params[:uid]})
 end
 
 helpers do
   # def some_stuff_to_help_us
 end
+

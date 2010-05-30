@@ -12,7 +12,18 @@ $(document).ready(function() {
     function() { $(this).parent().find(".info li").show();$(this).text("[[ close all ]]")},
     function() { $(this).parent().find(".info li").hide();$(this).text("[[ inspect all ]]")}    
   )
-  
+
+  $(".delete-all").click(function(){
+    if (confirm("No going back. This will delete all annotations.")) {
+      var url = $(this).attr("action")
+      $.ajax({type:"POST", url: url,
+        success: function() {
+          window.location.reload()
+        }
+      })
+    }
+  })
+
   $(".delete").click(function(){
     var uid = $(this).attr("uid")
     $.ajax({
