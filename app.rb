@@ -73,8 +73,13 @@ get "/stats" do
   }
 end
 
+post "/delete/:uid" do
+  # TODO auth
+  Anno.find_one(params[:uid]).delete
+end
 
 helpers do
   # def some_stuff_to_help_us
 end
+
 

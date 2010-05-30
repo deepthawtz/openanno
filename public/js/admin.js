@@ -11,12 +11,21 @@ $(document).ready(function() {
   )
   
   $(".delete").click(function(){
+    var uid = $(this).attr("uid")
     $.ajax({
       type: "POST",
-      url: "/delete/" + $(this).data("uid"),
+      url: "/delete" + uid,
+      data: $(this).attr("uid").serialize(),
       success: function(data) {
-        console.log(data)
+        console.log("debugging ajax POST")
+        console.log("receiving data: " + data)
       }
     })
   })
+})
+
+$(".status").each(function(){
+  $(this).hide()
+  console.log(this)
+  console.log($(this).attr("id").replace(/status_/, ""))
 })
