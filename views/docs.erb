@@ -1,8 +1,10 @@
 <h1>Docs</h1>
 <br><br>
 <% if @email_sent %>
-  <p><b>Thanks for signing up. An email containing your API key was sent out :D</b></p>
+  <p class="flash">Thanks for signing up. An email containing your API key was sent out</p>
 <% end %>
+
+<p class="flash">Thanks for signing up. An email containing your API key was sent out</p>
 
 <h3>First Steps</h3>
 
@@ -34,7 +36,6 @@
 
 <br>
 <h3>Follow-along instructions:</h3>
-<p>
 <ol>
   <li>While logged into Facebook, point your browser to <a href="http://graph.facebook.com/me">http://graph.facebook.com/me</a>.</li>
   <li>Take note of the "id" field in the returned JSON.</li>
@@ -42,7 +43,7 @@
   <li>Now call `curl -i -X POST -d '[{"example_type":{"awesome_factor":"10"}}]' http://openanno.com/api/fb_{your_id}`. This posts an annotation to your Facebook profile. Note the fb_ prefix in the id. This is our convention to identify facebook ids</li>
   <li>Call the curl from 3. again. It'll now include the annotations :)</li>
 </ol>
-</p>
+
 
 <br><br><br><br>
 
