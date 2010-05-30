@@ -1,5 +1,6 @@
 require "uri"
 require "mongo"
+require 'json'
 
 if ENV["MONGOHQ_URL"]
   uri = URI.parse(ENV["MONGOHQ_URL"])

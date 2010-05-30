@@ -17,19 +17,33 @@ $KCODE="utf-8"
 #          end
 #        }
 #      end
-#      # End new code      
+#      # End new code
 #end
 
 # post annotation
 #post "/:uniqueid", :subdomain => /api/ do
-post "/api/:uniqueid" do
-  "Hi, you have postet an annotation"
+post "/api/:uid" do
+
+  api_key = params[:api_key] || "homies"
+  annotations = JSON.parse(request.body.read.to_s)
+  # TODO
+  # verify api_key
+  anno = {
+    :api_key => api_key,
+    :uid => params[:uid],
+    :annotations => annotations
+  }
+  Anno.insert(anno)
+
+  "Ok"
 end
 
 # get annotations for object
-#get "/:uniqueid", :subdomain => /api/ do
-get "/api/:uniqueid" do
-  "[Annotation]"
+# get "/:uniqueid", :subdomain => /api/ do
+get "/api/:uid" do
+  annos = Anno.find({:uid => params[:uid]}).to_a
+  "#{annos.inspect}"
+  # JSON.generate(annos)
 end
 
 
