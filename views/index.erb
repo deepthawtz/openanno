@@ -1,6 +1,6 @@
 <header>
   <div id="logo">
-    <h1><span class="italic">#open</span><span id="lightest">anno</span>
+    <h1><a href="/"><span class="italic">#open</span><span id="lightest">anno</a></span>
     </h1>
   </div><!--end of logo div-->
   <nav>
@@ -18,8 +18,6 @@
     </ul>
   </nav>
 </header>
-<hr id="top-hr" class="clear-both">
-<hr id="bottom-hr">
 <div id="title">
 <h2>
   annotate anything...
@@ -35,7 +33,8 @@
 <% if @form_error %>
 	<p><b><%=@form_error%></b></p>
 <% end %>
-  <form action="request_api_key" method="post" name="main-form" id="main-form">
+
+  <form action="" method="post" name="main-form" id="main-form">
     <input type="email" id="email" size="100" name="email" placeholder="your email">
     <input type="submit" id="submit" value="go!">
   </form>
