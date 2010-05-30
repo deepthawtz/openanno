@@ -6,15 +6,11 @@ get "/" do
   erb :index
 end
 
+
 # POST "/:uid", :subdomain => "api"
 post "/api/:uid" do
-  api_key = params[:api_key] || "homies"
+  validate_api_key(params[:api_key])
   annotations = JSON.parse(request.body.read.to_s)
-
-  if !User.find_one(:api_key => api_key)
-    status 403
-    return "Unknown API Key\n\n"
-  end
 
   anno = {
     :api_key => api_key,
@@ -26,6 +22,28 @@ post "/api/:uid" do
 
   "OK\n\n"
 end
+
+post "/manualpost" do
+
+  if !User.find_one(:api_key => params[:api_key])
+     @api_key_error = true
+
+     erb :add, :layout => :form
+ else
+  annotations = process_from_post(params["type"])
+
+  anno = {
+    :api_key => params[:api_key],
+    :uid => params["obj_name"],
+    :created_at => Time.now,
+    :annotations => annotations
+  }
+  Anno.insert(anno)
+
+  "OK\n\n"
+  end
+end
+
 
 # get annotations for object
 # get "/:uid", :subdomain => /api/ do
@@ -130,27 +148,37 @@ post "/delete/:uid" do
 end
 
 helpers do
-  annos_type = [
-    {"id" => "movies",
-      "names" => ["name1", "name2"],
-      "values" => ["value1", "value2"]
-      },
-    {"id" => "event",
-        "names" => ["event_field"],
-        "values" => ["some_event_field_value"]
-        }
-  ]
+  # annos_type = [
+  #   {"id" => "movies",
+  #     "names" => ["name1", "name2"],
+  #     "values" => ["value1", "value2"]
+  #     },
+  #   {"id" => "event",
+  #       "names" => ["event_field"],
+  #       "values" => ["some_event_field_value"]
+  #   }
+  # ]
   def process_from_post(annos_type)
-    # annos_param[][]
     result = []
-    annos_type.each do |anno|
+    annos_type.each do |_,anno|
+      p "Working on type #{anno["id"]}"
       set = {}
-      anno["names"].each_with_index do |name, idx|
-        set[name] = anno["values"][idx]
+      anno["names"].each_with_index do |key,idx|
+        p "Key=#{key} Idx=#{idx}"
+        set[key] = anno["values"][idx]
+
       end
-      result << {anno["id"] => set}
+      p set
+      result << { anno["id"] => set}
     end
-    result
+    return result
+  end
+
+  def validate_api_key(api_key)
+    if !User.find_one(:api_key => api_key)
+      status 403
+      return "Unknown API Key\n\n"
+    end
   end
 end
 

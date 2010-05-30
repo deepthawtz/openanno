@@ -1,10 +1,18 @@
 <section id="annotator">
-<form id="mfer" action="/api/" method="post">
+<form id="mfer" action="/manualpost" method="post">
+	<fieldset>
+		<legend>API Key</legend>
+		<% if @api_key_error %>
+		  <p style="color:red;">This API key is not valid!</p>
+		<% end %>
+		<input type="text" name="api_key" id="api_key" />
+	</fieldset>
 	<fieldset>
 		<legend>Object to Annotate</legend>
 		<p>Enter the name of the object you want to annotate.</p>
 		<input type="text" name="obj_name" id="obj_body" />
 	</fieldset>
+
 	<fieldset>
 		<legend>Annotations Content</legend>
 		<p>Annotations currently require Namespaces with Key-Value pairs. All three fields are required. Namespaces can be the same, but it is not recommended</p>
