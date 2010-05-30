@@ -152,10 +152,9 @@ input::-webkit-input-placeholder { color:#ccc;line-height:65px;}
   text-decoration:none;
 }
 
-
-h3{
-font-size:2em;
-font-weight:100;
+h3 {
+  font-size:2em;
+  font-weight:100;
 }
 .accordion li { color:#333; }
 .accordion li + li { margin-top:10px; }
@@ -179,14 +178,14 @@ li.anno {
   padding:12px;
 }
 .accordion{
-margin-top:50px;
+  margin-top:50px;
 }
 
 .flash {
-	color: #2a2;
-	font-weight: bold;
-	font-size: 1.2em;
-	padding: 40px;
-	padding-top: 0px;
+  color: #2a2;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 40px;
+  padding-top: 0px;
 }
 

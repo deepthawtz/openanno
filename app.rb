@@ -115,7 +115,7 @@ get "/stats" do
   total = Anno.count
   annos = Anno.all.reverse
 
-  # sort by recently modified/added
+  # process some annotations
 
   erb :stats, :layout => :admin, :locals => {
     :total => total,
@@ -133,6 +133,8 @@ post "/delete/:uid" do
 end
 
 helpers do
-  # def some_stuff_to_help_us
+  def process_some_annotations(annos)
+
+  end
 end
 
