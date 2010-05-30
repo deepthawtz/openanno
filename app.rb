@@ -86,13 +86,13 @@ post "/" do
     # if the email already exists, delete it
     User.remove :email => email
     
-    # generate api key
-    api_key = (Faker::Address.city.gsub(/\s/, '_') + "_" + Faker::Address.city.gsub(/\s/, '_') + "_" + rand(100).to_s).downcase
-    
     # check if already has a key and return old one
     user = User.find_one({:email => params[:email]})
-    api_key = user['api_key'] if user and user['api_key']
-
+    api_key = user['api_key'] if user and user['email']
+    
+    # generate api key
+    api_key ||= (Faker::Address.city.gsub(/\s/, '_') + "_" + Faker::Address.city.gsub(/\s/, '_') + "_" + rand(100).to_s).downcase
+    
     # insert api key into MongoDB
     # TODO error checking? whatever ...
     User.insert({:email => email, :api_key => api_key})
@@ -133,7 +133,6 @@ get "/stats" do
     :annos => annos
   }
 end
-
 
 helpers do
   # def some_stuff_to_help_us
