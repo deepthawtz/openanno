@@ -9,7 +9,14 @@ end
 
 # POST "/:uid", :subdomain => "api"
 post "/api/:uid" do
-  validate_api_key(params[:api_key])
+
+  api_key = params[:api_key]
+  if !User.find_one(:api_key => params[:api_key])
+     status 403
+     "Ok\n\n"
+    return
+  end
+  
   annotations = JSON.parse(request.body.read.to_s)
 
   anno = {
@@ -172,13 +179,6 @@ helpers do
       result << { anno["id"] => set}
     end
     return result
-  end
-
-  def validate_api_key(api_key)
-    if !User.find_one(:api_key => api_key)
-      status 403
-      return "Unknown API Key\n\n"
-    end
   end
 end
 
