@@ -29,9 +29,8 @@ post "/api/:uid" do
   # show an error if the api_key is invalid
   if !User.find_one(:api_key => api_key)
     status 403
-    return "Unknown API Key"
+    return "Unknown API Key\n\n"
   end
-
 
   # build an annotation and insert it
   anno = {
@@ -42,7 +41,7 @@ post "/api/:uid" do
   }
   Anno.insert(anno)
 
-  "Ok"
+  "OK\n\n"
 end
 
 # get annotations for object
@@ -61,15 +60,15 @@ end
 # duplicates facebook api and pulls in annotations
 # annotations are fb_{fb_uniqueid}
 get "/fb/:uid" do
-  
+
   fb_obj = Facebook::GraphAPI.new().get_object(params[:uid])
-  uid = fb_obj["id"] ? "fb_"+fb_obj["id"] : "fb_"+params[:uid] 
- 
+  uid = fb_obj["id"] ? "fb_"+fb_obj["id"] : "fb_"+params[:uid]
+
   # return all annotations in one merged array
   result = { :uid => uid,
              :fb_object => fb_obj,
              :annotations => Anno.find({:uid => uid}).to_a.map { |a| a["annotations"] }.flatten }
-             
+
   result.to_json
 
 end
@@ -87,14 +86,14 @@ post "/" do
 
     # if the email already exists, delete it
     User.remove :email => email
-    
+
     # check if already has a key and return old one
     user = User.find_one({:email => params[:email]})
     api_key = user['api_key'] if user and user['email']
-    
+
     # generate api key
     api_key ||= (Faker::Address.city.gsub(/\s/, '_') + "_" + Faker::Address.city.gsub(/\s/, '_') + "_" + rand(100).to_s).downcase
-    
+
     # insert api key into MongoDB
     # TODO error checking? whatever ...
     User.insert({:email => email, :api_key => api_key})
