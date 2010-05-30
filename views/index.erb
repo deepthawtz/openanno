@@ -18,65 +18,53 @@
     </ul>
   </nav>
 </header>
-<div id="title">
-<h2>
-  annotate anything...
-</h2>
-</div>
-<div id="sign-up">
- <p>
-   Sign up to receive a developers key
- </p>
-</div>
-
+<div id="title"><h2>annotate anything...</h2></div>
+<div id="sign-up"><p>sign up to receive a developers key</p></div>
 <div id="form-div">
-<% if @form_error %>
-	<p><b><%=@form_error%></b></p>
-<% end %>
-
+  <%= "<p><b>#{@form_error}</b></p>" if @form_error %>
   <form action="" method="post" name="main-form" id="main-form">
     <input type="email" id="email" size="100" name="email" placeholder="your email">
     <input type="submit" id="submit" value="go!">
   </form>
 </div><!--end of form-div-->
-	<ul class="accordion">
-		<li id="create-slide">
-			<h3 class="opener active">Key-value storage</h3>
-			<div class="slide">
-				<div class="content">
-					<p id="1p">
-      		Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-      		ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-      		amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-      		odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-      		</p>
-				</div>
-			</div>
-		</li>
-		<li id="deploy-slide">
-			<h3 class="opener">Access millions of user-created annotations</h3>
-			<div class="slide" style="display: none">
-				<div class="content">
-				  <p id="2p">
-      		Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-      		purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-      		velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-      		suscipit faucibus urna.
-      		</p>
-				</div>
-			</div>
-		</li>
-		<li id="work-slide">
-			<h3 class="opener">Platform agnostic</h3>
-			<div class="slide" style="display: none">
-				<div class="content">
-					<p id="2p">
-      		Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-      		purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-      		velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-      		suscipit faucibus urna.
-      		</p>
-				</div>
-			</div>
-		</li>
-	</ul>
+  <ul class="accordion">
+    <li id="create-slide">
+      <h3 class="opener">what's all the buzz?</h3>
+      <div class="slide" style="display: none">
+        <div class="content">
+          <p id="1p">
+          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+          ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+          amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+          odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li id="deploy-slide">
+      <h3 class="opener">okay, but how do I use it...</h3>
+      <div class="slide" style="display: none">
+        <div class="content">
+          <p id="2p">
+          Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+          purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+          velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+          suscipit faucibus urna.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li id="work-slide">
+      <h3 class="opener">Platform agnostic</h3>
+      <div class="slide" style="display: none">
+        <div class="content">
+          <p id="2p">
+          Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+          purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+          velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+          suscipit faucibus urna.
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>

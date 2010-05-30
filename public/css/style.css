@@ -13,9 +13,18 @@ a { text-decoration:none;}
   font-style: normal;
 }
 
+@font-face {
+  font-family: "RockwellStd-Light";
+  src: url('../fonts/RockwellStd-Light.otf');
+}
+
 body{
   font-family: 'RockwellStdRegular';
+  color:#999;
+  padding:30px 0;
 }
+
+p { font-family:"Lucida Grande", sans-serif;letter-spacing:-1px; }
 
 header {
   margin-top:-20px;
@@ -35,11 +44,15 @@ h1{
   margin-bottom:-40px;
 }
 
+h1 a > span { font-weight:bold;font-style:italic; }
+
+h1 a > span + span { font-family:RockwellStd-Light;font-weight:100; }
+
 h1 a { color:#333; }
 
 h2{
   font-size:5em;
-  color:#4c9ce6;
+  color:#0A81FF;
   margin-top:20px;
   margin-bottom:-20px;
   letter-spacing:-4px;
@@ -47,16 +60,15 @@ h2{
 h3 {margin:20px;}
 pre {font-family:"Monaco";padding:12px;background:#F8FFDA;margin:20px;}
 #title{
-margin-top:2px;
-border-top:2px solid #ccc;
-
+  margin-top:2px;
+  border-top:2px solid #ccc;
 }
 
 #sign-up {
-  color:#666;
   font-size:1.75em;
   margin-bottom:10px;
   margin-top:30px;
+  color:#666;
 }
 
 #form-div{
@@ -67,28 +79,47 @@ border-top:2px solid #ccc;
   position:relative;
 }
 
-#email{
-margin-bottom:10px;
-width:600px;
-display:block;
-height:45px;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
-border-radius: 5px;
-font-size:3em;
-padding:0 0 10px 20px;
+#form-div > p:first-child > b {
+  position:absolute;
+  bottom:-25px;
+  color:red;
+  font-family:"Helvetica", "Lucida Grande", sans-serif;font-size:11px;
 }
+
+#email{
+  -moz-border-radius:5px 5px 5px 5px;
+  display:block;
+  font-size:3em;
+  height:45px;
+  margin-bottom:10px;
+  padding:0 0 10px 20px;
+  width:579px;
+  font-family:"RockwellStd", serif;
+  line-height:50px;
+}
+
+input::-webkit-input-placeholder { color:#ccc;line-height:65px;}
 
 #submit{
   width:100px;
   height:59px;
   background-color:#ccc;
-  -webkit-border-radius: 0 5px 5px 0;
-  -moz-border-radius: 5px;
+  color:#333;
+  text-shadow:0 1px 0 #fff;
   position:absolute;
   top:0;
   right:-2px;
   background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+  background: -moz-linear-gradient(-90deg, #eee, #ccc);
+  border:1px solid red;
+  -moz-border-radius: 5px;
+  -moz-border-radius-bottomleft:0;
+  -moz-border-radius-topleft:0;
+  height:100%;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #999;
+  border-bottom:1px solid #999;
   font-size:2em;
 }
 
@@ -115,7 +146,6 @@ padding:0 0 10px 20px;
 }
 
 nav {
-  width:19%;
   float:right;
   margin-top:45px;
   margin-bottom:20px;
@@ -123,11 +153,12 @@ nav {
 
 nav li {
   display:inline;
-  margin-right:40px;
 }
 
 nav li a {
   color:#ccc;
+  float:right;
+  margin-left:25px;
   text-decoration:none;
 }
 
@@ -154,7 +185,7 @@ list-style-type:none;
 }
 
 ul h3{
-color:#b5894f;
+  color:#ED903E;
 }
 
 .accordion{
