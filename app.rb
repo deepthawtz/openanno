@@ -35,7 +35,7 @@ post "/api/:uid" do
     :annotations => annotations
   }
   Anno.insert(anno)
-  erb :
+  redirect "/"
 end
 
 # get annotations for object
