@@ -3,6 +3,8 @@ margin:0;
 padding:0;
 }
 
+a { text-decoration:none;}
+
 @font-face {
 	font-family: 'RockwellStdRegular';
 	src: url('rockwellstd-webfont.eot');
@@ -15,8 +17,11 @@ body{
   font-family: 'RockwellStdRegular';
 }
 
-header{
+header {
   margin-top:-20px;
+	display:block;
+	overflow:hidden;
+	border-bottom:1px solid #ccc;
 }
 
 #container{
@@ -30,6 +35,8 @@ h1{
   margin-bottom:-40px;
 }
 
+h1 a { color:#333; }
+
 h2{
   font-size:5em;
   color:#4c9ce6;
@@ -39,15 +46,16 @@ h2{
 }
 
 #title{
-width:99%;
-margin:auto;
+margin-top:2px;
+border-top:2px solid #ccc;
+
 }
 
 #sign-up {
   color:#666;
   font-size:1.75em;
-  margin-top:45px;
-  margin-bottom:30px;
+	margin-bottom:10px;
+	margin-top:30px;
 }
 
 #form-div{
@@ -122,29 +130,13 @@ nav li a {
   text-decoration:none;
 }
 
-hr {
-  color:#ccc;
-  background-color:#ccc;
-}
-
-#top-hr{
-height:2px;
-color:#ccc;
-background-color:#ccc;
-margin-bottom:2px;
-}
-
-#bottom-hr{
-height:1px;
-color:#ccc;
-background-color:#ccc;
-}
 
 h3{
 font-size:2em;
 font-weight:100;
 }
 
+.accordion li + li { margin-top:10px; }
 h3 a {
   color:#b5894f;
   text-decoration:none;

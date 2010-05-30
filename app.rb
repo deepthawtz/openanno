@@ -108,7 +108,6 @@ get "/docs" do
   erb :docs
 end
 
-
 # Admin stuff
 get "/stats" do
   # TODO: authenticate admin
