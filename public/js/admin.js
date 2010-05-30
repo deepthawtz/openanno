@@ -25,15 +25,14 @@ $(document).ready(function() {
   })
 
   $(".delete").click(function(){
-    var uid = $(this).attr("uid")
-    $.ajax({
-      type: "POST",
-      url: "/delete" + uid,
-      data: $(this).attr("uid").serialize(),
-      success: function(data) {
-        console.log("receiving data: " + data)
-      }
-    })
+    if (confirm("Delete?")) {
+      var url = $(this).attr("action")
+      $.ajax({type: "POST", url: url,
+        success: function() {
+          window.location.reload()
+        }
+      })
+    }
   })
 })
 
