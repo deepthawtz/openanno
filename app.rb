@@ -118,6 +118,10 @@ post "/" do
   end
 end
 
+get "/add" do
+  erb :add
+end
+
 # random other page
 get "/docs" do
   erb :docs
