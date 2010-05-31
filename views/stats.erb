@@ -1,7 +1,6 @@
 <div class="stats">
   <h3>Total Annotations: <%= locals[:total] %></h3>
   <div class="view-all">[[ view all ]]</div>
-  <div action="/delete/all" class="delete-all">[[ delete all ]]</div>
   <ul>
     <% locals[:annos].each do |anno| %>
       <li class="anno">
