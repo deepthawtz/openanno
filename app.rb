@@ -147,9 +147,7 @@ get "/stats" do
 end
 
 post "/delete/all" do
-
-
-  Anno.remove({})
+  # Anno.remove({})
 end
 
 post "/delete/:uid" do
@@ -158,16 +156,6 @@ post "/delete/:uid" do
 end
 
 helpers do
-  # annos_type = [
-  #   {"id" => "movies",
-  #     "names" => ["name1", "name2"],
-  #     "values" => ["value1", "value2"]
-  #     },
-  #   {"id" => "event",
-  #       "names" => ["event_field"],
-  #       "values" => ["some_event_field_value"]
-  #   }
-  # ]
   def process_from_post(annos_type)
     result = []
     annos_type.each do |_,anno|
@@ -181,7 +169,7 @@ helpers do
       p set
       result << { anno["id"] => set}
     end
-    return result
+    result
   end
 end
 
